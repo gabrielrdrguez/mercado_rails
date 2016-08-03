@@ -1,0 +1,19 @@
+<p>
+  <strong>ID:</strong>
+  <%= @venda.id %>
+</p>
+
+<% @venda.item_pedidos.each do |i| %>
+    Produto: <%= i.produto.nome %> <%= link_to "Remover", item_pedido_path(i,:venda_id => @venda.id), method: :delete, data: { confirm: 'Confirmar Remoção' } %><br>
+    Quantidade: <%= i.quantidade %><br>
+    <br>
+<% end %>
+
+<p>
+  <strong>Total:</strong>
+  <%= @venda.valor_total %>
+</p>
+<%= link_to "Adicionar Item",  :controller => "item_pedidos",
+                               :action => "new",
+                               :id_venda => @venda.id %>
+<%= link_to "Voltar",  :back %>

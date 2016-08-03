@@ -1,0 +1,11 @@
+<% @produto.each do |p|  %>
+<tr>
+  <td>ID: <%= p.id %></td><br>
+  <td>Nome: <%= p.nome %> <%= link_to " Editar", edit_produto_path(p)%> </td><br>
+  <td>Valor: <%= p.valor %></td>
+</tr>
+<br><br>
+<%end%>
+<br>
+<%= link_to "Novo Produto",  new_produto_path %> <br>
+<%= link_to "Voltar",  :back %>

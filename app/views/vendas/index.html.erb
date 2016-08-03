@@ -1,0 +1,6 @@
+<% @vendas.each do |v| %>
+    ID: <%= v.id %> <%= link_to "Mostrar", venda_path(v) %>
+    <%= link_to "Remover", venda_path(v), method: :delete, data: { confirm: 'Confirmar Remoção' } %><br>
+    Total <%= v.valor_total %>
+    <br><br>
+<% end %>

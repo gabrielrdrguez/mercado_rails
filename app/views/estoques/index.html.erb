@@ -1,0 +1,10 @@
+<h2>Estoque</h2>
+<br>
+<% @estoque.each do |estoque| %>
+  Nome: <%= estoque.nome %> <%= link_to " Mostrar",  estoque_path(estoque) %>
+<br>
+<% end %>
+<br>
+<%= link_to "Novo Estoque ",  new_estoque_path %><br>
+<%= link_to "Adicionar Produto",  new_estoque_produto_path %><br>
+<%= link_to "Voltar",  :back %>

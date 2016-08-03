@@ -1,0 +1,13 @@
+<p>
+  <strong>Nome:</strong>
+  <%= @produto.nome %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @produto.valor %>
+</p>
+
+<br>
+<%= link_to "Modificar Produto",  edit_produto_path(@produto) %><br>
+<%= link_to "Voltar",  produtos_path %>

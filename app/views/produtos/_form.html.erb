@@ -1,0 +1,31 @@
+<%= form_for @produto do |f| %>
+
+    <% if @produto.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@article.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+          <ul>
+            <% @produto.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <p>
+      <%= f.label :nome %><br>
+      <%= f.text_field :nome %>
+    </p>
+
+    <p>
+      <%= f.label :valor %><br>
+      <%= f.number_field :valor, min: 0, step: 0.01 %>
+    </p>
+
+    <p>
+      <%= f.submit "Adicionar" %>
+    </p>
+
+<% end %>

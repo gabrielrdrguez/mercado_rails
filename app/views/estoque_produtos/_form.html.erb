@@ -1,0 +1,34 @@
+<%= form_for @estoque_produto do |f| %>
+
+    <% if @estoque_produto.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@estoque_produto.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+          <ul>
+            <% @estoque_produto.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :estoque_id %>
+      <%= f.collection_select(:estoque_id, Estoque.all, :id, :nome, {disabled: 'Curitiba'}) %>
+    </p>
+    <p>
+      <%= f.label :produto_id %>
+      <%= f.collection_select(:produto_id, Produto.all, :id, :nome) %>
+    </p>
+    <p>
+      <%= f.label :quantidade %><br>
+      <%= f.number_field :quantidade, min: 0 %>
+    </p>
+
+    <p>
+      <%= f.submit "Adicionar" %>
+    </p>
+
+<% end %><br>
+<%= link_to "Voltar",  :back %>

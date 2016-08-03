@@ -1,0 +1,11 @@
+<h1><%= @estoque.nome %></h1>
+
+<% @estoque.estoque_produtos.includes(:produto).each do |e| %>
+  <p>
+    Nome: <%= e.produto.nome %><br>
+    Quantidade: <%= e.quantidade %>
+  </p>
+<% end %>
+<br>
+<%= link_to "Adicionar Produto", new_estoque_produto_path(:estoque_id => @estoque.id) %><br>
+<%= link_to "Voltar",  :back %>

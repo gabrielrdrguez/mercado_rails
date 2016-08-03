@@ -1,0 +1,35 @@
+<%= form_for @item_pedido do |f| %>
+    <% if @item_pedido.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@item_pedido.errors.count, "error") %> prohibited
+            this article from being saved:
+          </h2>
+          <ul>
+            <% @item_pedido.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <%= f.label :venda_id %><br>
+      <%= f.text_field :venda_id, :disabled => true %>
+      <%= f.hidden_field :venda_id %>
+    </p>
+    <p>
+      <%= f.label :produto_id %><br>
+      <%= f.text_field :produto_id %>
+    </p>
+    <p>
+      <%= f.label :quantidade %><br>
+      <%= f.number_field :quantidade %>
+    </p>
+    <p>
+    <%= f.label :estoque_id %><br>
+    <%= f.collection_select(:estoque_id, Estoque.all, :id, :nome) %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>
